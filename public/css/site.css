@@ -1,0 +1,492 @@
+/* ==========================================================================
+   HTML5 Boilerplate styles - h5bp.com (generated via initializr.com)
+   ========================================================================== */
+
+/*
+yellow #FFFB5D
+green #6BD567
+blue #5FCBCE
+*/
+
+
+html,
+button,
+input,
+select,
+textarea {
+    color: #222;
+}
+
+body {
+    font-size: 1em;
+    line-height: 1.4;
+}
+
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+img {
+    vertical-align: middle;
+}
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.chromeframe {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+
+/* ===== Initializr Styles ==================================================
+   Author: Jonathan Verrecchia - verekia.com/initializr/responsive-template
+   ========================================================================== */
+
+body {
+    font-family: 'Lato', sans-serif;
+    font-size: 18px;
+    font-weight: 300;
+    color: #222;
+    background: #EEE;
+}
+ul {
+    padding-left: 0; 
+    list-style: none;
+}
+a {
+    text-decoration: none;
+    color: #222;
+}
+a:hover {
+    color: #5CC8CB;
+}
+header h1{
+    font-size: 50px;
+}
+.wrapper {
+    width: 90%;
+    margin: 0 5%;
+}
+
+.header-container {
+    width: 100%;
+    border: none;
+}
+
+.main-container {
+    margin-top: 10px;
+}
+
+.footer-container,
+.main aside {
+    border: none;
+}
+
+.header-container,
+.main aside {
+    background: #FFF;
+}
+.footer-container {
+    background: #5CC8CB;
+}
+.title {
+    color: #333;
+}
+.logo {
+    font-weight: 300;
+    color: #5CC8CB;
+}
+
+/* ==============
+    MOBILE: Menu
+   ============== */
+
+nav ul {
+    margin: 35px 0;
+    padding: 0;
+}
+nav a {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 400;
+    color: #222;
+    background: #FFF;
+}
+
+nav a:hover,
+nav a:visited {
+    color: #222;
+}
+nav li a:hover {
+    text-decoration: none;
+    border-bottom: 3px solid #5CC8CB;
+}
+nav li a.active {
+    color: #222;
+    border-bottom: 3px solid #5CC8CB;   
+}
+
+/* ==============
+    MOBILE: Main
+   ============== */
+
+.main {
+    padding: 20px 0;
+    position: relative;
+}
+.main article h1,
+.main article h2,
+.main aside h2 {
+    font-weight: 400;
+    color: #222;
+}
+.main article h1 {
+    font-size: 36px;
+}
+.main aside h2,
+.main article h2 {
+    font-size: 28px;
+}
+#cardFilters {
+     float:left;
+     background-color: #aaa;
+     margin-left: 3px;
+     padding: 3px;
+     list-style-type: none;
+     width: 100%;
+}
+#cardFilters li {
+     margin-right: 35px;
+     text-align: center;
+     float:left;
+}
+.footer-container footer {
+    color: #222;
+    padding: 20px 0;
+}
+
+/* ===============
+    ALL: IE Fixes
+   =============== */
+
+.ie7 .title {
+    padding-top: 20px;
+}
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+#cardcontainer {
+
+}
+.carditem {
+    border: 2px solid;
+    width: 180px;
+    height: 125px;
+    margin: 5px;
+    float: left;
+    overflow: hidden;
+    position: relative;
+    color: #222;
+    font-size: 14px;
+    font-weight: normal;
+    padding: 15px 3px;
+    background: #fff;
+    text-align: center;
+    -webkit-transition:all 1s ease-in-out;
+    -moz-transition:all 1s ease-in-out;
+    -o-transition:all 1s ease-in-out;
+    transition:all 1s ease-in-out;
+}
+.hover {
+    -webkit-transition:all .2s ease-in-out;
+    -moz-transition:all .2s ease-in-out;
+    -o-transition:all .2s ease-in-out;
+    transition:all .2s ease-in-out;
+}
+.hover:hover {
+    -webkit-transform:scale(1.2);
+    -moz-transform:scale(1.2);
+    -ms-transform:scale(1.2);
+    -o-transform:scale(1.2);
+    transform:scale(1.2);
+}
+.carditem.PoorCredit{
+    border-color: #5CC8CB;
+}
+.carditem.BalanceTransfer{
+    border-color: #224A4B;
+}
+.carditem.Purchase{
+    border-color: #3F898B;
+}
+.carditem.Cashback{
+    border-color: #62D5D8;
+}
+.carditem.Rewards{
+    border-color: #50AFB1;
+}
+.carditem.Combined{
+    border-color: #8DFCFF;
+}
+#cardDetails {
+    height: 220px;
+    float: left;
+    width: 100%;
+}
+
+
+/* ==========================================================================
+   Media Queries
+   ========================================================================== */
+
+@media only screen and (min-width: 480px) {
+
+/* ====================
+    INTERMEDIATE: Menu
+   ==================== */
+    nav ul {
+        margin-left: 108px;
+    }
+
+    nav a {
+        float: left;
+        width: 25%;
+        margin: 20px 10px;
+        padding: 5px;
+        margin-bottom: 0;
+    }
+
+    nav li:first-child a {
+        margin-left: 0;
+    }
+
+    nav li:last-child a {
+        margin-right: 0;
+    }
+
+/* ========================
+    INTERMEDIATE: IE Fixes
+   ======================== */
+
+    nav ul li {
+        display: inline;
+    }
+
+    .oldie nav a {
+        margin: 0 0.7%;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+
+/* ====================
+    WIDE: CSS3 Effects
+   ==================== */
+
+    
+
+/* ============
+    WIDE: Menu
+   ============ */
+
+    .title {
+        float: left;
+    }
+
+    nav {
+        float: right;
+        width: 38%;
+    }
+
+/* ============
+    WIDE: Main
+   ============ */
+    .main article {
+        display: block;
+        position: relative;
+    }
+
+    .main article section {
+        float: left;
+        width: 100%;
+    }
+
+    .main aside {
+        float: right;
+        width: 28%;
+    }
+}
+
+@media only screen and (min-width: 1140px) {
+
+/* ===============
+    Maximal Width
+   =============== */
+
+    .wrapper {
+        width: 1026px; /* 1140px - 10% for margins */
+        margin: 0 auto;
+    }
+}
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+.ir {
+    background-color: transparent;
+    border: 0;
+    overflow: hidden;
+    *text-indent: -9999px;
+}
+
+.ir:before {
+    content: "";
+    display: block;
+    width: 0;
+    height: 150%;
+}
+
+.hidden {
+    display: none !important;
+    visibility: hidden;
+}
+
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+}
+
+.invisible {
+    visibility: hidden;
+}
+
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
+/* ==========================================================================
+   Print styles
+   ========================================================================== */
+
+@media print {
+    * {
+        background: transparent !important;
+        color: #000 !important; /* Black prints faster: h5bp.com/s */
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
+
+    abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
+
+    /*
+     * Don't show links for images, or javascript/internal links
+     */
+
+    .ir a:after,
+    a[href^="javascript:"]:after,
+    a[href^="#"]:after {
+        content: "";
+    }
+
+    pre,
+    blockquote {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+    }
+
+    thead {
+        display: table-header-group; /* h5bp.com/t */
+    }
+
+    tr,
+    img {
+        page-break-inside: avoid;
+    }
+
+    img {
+        max-width: 100% !important;
+    }
+
+    @page {
+        margin: 0.5cm;
+    }
+
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
+
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
+}
