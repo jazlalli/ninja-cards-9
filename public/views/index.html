@@ -41,11 +41,12 @@
                 </nav>
             </header>
         </div>
-
+        <section class="headerwrapper"> 
+            <header id="cardDetails" ng-view></header>
+        </section>
         <div class="main-container">
             <div class="main wrapper clearfix">
                 <article>
-                    <header id="cardDetails" ng-view></header>
                     <section>
                         <h2>Find your ideal credit card</h2>
                         <p>Use the filters below to select the type of card you want to see.</p>
@@ -87,8 +88,8 @@
                 $('#cardFilters a.filter').click(function () {
                     $('#cardcontainer').isotope({ filter: $(this).attr('data-filter') });
                     $('#cardDetails').hide(300);
-                });
-            });
+                }); 
+            }); 
         </script>
     </body>
 </html>

@@ -225,6 +225,8 @@ nav li a.active {
     -moz-transition:all 1s ease-in-out;
     -o-transition:all 1s ease-in-out;
     transition:all 1s ease-in-out;
+    border-bottom-right-radius: 10px;
+    border-top-left-radius: 10px;
 }
 .hover {
     -webkit-transition:all .2s ease-in-out;
@@ -257,10 +259,13 @@ nav li a.active {
 .carditem.Combined{
     border-color: #8DFCFF;
 }
-#cardDetails {
-    height: 220px;
+.headerwrapper {
     float: left;
     width: 100%;
+}
+#cardDetails {
+    width: 1020px;
+    margin: 0 auto;
 }
 
 
