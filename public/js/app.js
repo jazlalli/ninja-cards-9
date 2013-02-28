@@ -35,6 +35,17 @@ app.directive('repeatDirective', function ($timeout) {
         $('#cardDetails').show(300);
          $('html, body').animate({ scrollTop: 0 }, 300);
       });
+
+      $(element).mouseenter(function() {
+          $('.carditem').not($(this)).fadeTo(100, 0.7, function() {
+           
+          });
+     
+      }).mouseleave(function() {
+          $('.carditem').not($(this)).fadeTo(10, 1, function() {
+            // Animation complete.
+          });
+      });
   };
 })
 .directive('loadedDirective', function () {
