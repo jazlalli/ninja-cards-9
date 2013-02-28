@@ -1,5 +1,8 @@
-<div>
+<div class="jumbotron masthead">
     <h1>{{card.Name}}</h1>
+    
+    <img width="200px" ng-src="{{card.ImageUrl}}">
+
     <p>Some interesting information about this amazing credit card wow</p>
     <ul>
     	<li ng-repeat="detail in card.BulletsPositive">

@@ -15,8 +15,13 @@ app.get('/', function (req, res) {
     res.end(fs.readFileSync(__dirname + '/public/views/index.html'));
 });
 
+app.get('/cards', function (req, res) {
+    res.writeHead(200, {'Content-Type': 'text/html'});
+    res.end(fs.readFileSync(__dirname + '/public/views/creditcards.html'));
+});
+
 app.get('/api/cards', api.cards);
 app.get('/api/cards/:id', api.card);
 
-app.listen(3000);
-console.log('Listening on port 3000...');
+app.listen(3001);
+console.log('Listening on port 3001...');
