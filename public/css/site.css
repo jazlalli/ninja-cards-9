@@ -1,8 +1,32 @@
+.hero-unit {
+    background-color: #fff;
+}
+#bgmain {
+    background: url(../img/wood.png) no-repeat;
+    background-size: 100%;
+    padding-top: 90px;
+    color: #fff;
+}
+#bgmain span,
+#bgmain ul {
+    display: inline-block;
+    color: white;
+    margin: -5px 0;
+    background: rgb(21, 21, 21); /* fallback color */
+    background: rgba(21, 21, 21, 0.7);
+    padding: 10px;
+}
+#bgmain ul {
+    list-style-type: none;
+}
+#bgmain ul li i {
+    margin-top: 3px;
+    padding-right: 5px;
+}
+
 .jumbotron {
-    position: relative;
     padding: 40px 0;
     color: #fff;
-    text-align: center;
     text-shadow: 0 1px 3px rgba(0,0,0,.4), 0 0 30px rgba(0,0,0,.075);
     background: #020031;
     background: -moz-linear-gradient(45deg, #020031 0%, #6d3353 100%);
@@ -16,60 +40,88 @@
     -moz-box-shadow: inset 0 3px 7px rgba(0,0,0,.2), inset 0 -3px 7px rgba(0,0,0,.2);
     box-shadow: inset 0 3px 7px rgba(0,0,0,.2), inset 0 -3px 7px rgba(0,0,0,.2);
 }
-
-.jumbotron::after {
+.jumbotron::before {
     content: '';
     display: block;
     position: absolute;
     top: 0;
     right: 0;
-    bottom: 0;
+    bottom: 60px;
     left: 0;
     background: url(../img/bs-docs-masthead-pattern.png) repeat center center;
     opacity: .4;
 }
-
 .masthead {
-    padding: 70px 0 80px;
+    padding: 50px 80px;
     margin-bottom: 0;
     color: #fff;
 }
-
-
-.carditem {
-    border: 1px solid #ddd;
-    width: 220px;
-    height: 130px;
-    margin: 5px;
-    float: left;
+.featurette-divider {
+    margin: 50px 0;
+}
+.featurette {
+    padding-top: 120px;
     overflow: hidden;
+}
+.featurette-image {
+    margin-top: -120px;
+}
+.featurette-heading {
+    font-size: 50px;
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: -1px;
+}
+:target {
+    -webkit-transition: all .5s ease;
+    -moz-transition: all .5s ease;
+    -o-transition: all .5s ease;
+    transition: all .5s ease;
+}
+#cardgrid a {
+    text-decoration: none;
+}
+.carditem {
+    border: 1px solid #eee;
+    width: 330px;
+    height: 190px;
+    margin: 5px;
+    padding: 5px;
     position: relative;
-    color: #222;
+    float: left;
+    background: #fff;
     font-size: 14px;
     font-weight: normal;
-    padding: 15px 3px;
-    background: #fff;
+    color: #333;
     text-align: center;
+    text-decoration: none;
     -webkit-transition:all 1s ease-in-out;
     -moz-transition:all 1s ease-in-out;
     -o-transition:all 1s ease-in-out;
     transition:all 1s ease-in-out;
-    border-bottom-right-radius: 10px;
-    border-top-left-radius: 10px;
 }
-.carditem p {
-    font-weight: bold;
+.carditem:hover {
+    border: 1px solid #eee;
+    background-color: #eee;
+    color: #333;
+    text-decoration: none;
+    -webkit-transition:all .1s ease-in-out;
+    -moz-transition:all .1s ease-in-out;
+    -o-transition:all .1s ease-in-out;
+    transition:all .1s ease-in-out;
 }
-.hover {
-    -webkit-transition:all .2s ease-in-out;
-    -moz-transition:all .2s ease-in-out;
-    -o-transition:all .2s ease-in-out;
-    transition:all .2s ease-in-out;
+.carditem img {
+    width: 70%;
 }
-.hover:hover {
-    -webkit-transform:scale(1.2);
-    -moz-transform:scale(1.2);
-    -ms-transform:scale(1.2);
-    -o-transform:scale(1.2);
-    transform:scale(1.2);
+.hero-content {
+    position: relative;
+    padding-bottom: 40px;
+}
+.hero-content img {
+    width: 300px;
+    padding-right: 40px;
+}
+.hero-content ul {
+    padding-top: 20px;
+    padding-bottom: 40px;
 }

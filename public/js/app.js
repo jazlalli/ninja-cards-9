@@ -1,60 +1,148 @@
-var app = angular.module('creditcards', []).
-  config(['$routeProvider', function($routeProvider) {
-    $routeProvider.
-      when('/card/:id', {
-        controller: cardDetailController,
-        templateUrl: '/views/partials/carddetail.html'
-      }).
-      otherwise({
-        redirectTo: '/'
-      });
-  }]).value('$anchorScroll', angular.noop);
+var app = angular.module('CreditCards', []).
+	config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
+	    $locationProvider.html5Mode(false);
+	    $routeProvider
+	    	.when('/', {
+	        	controller: 'CardsController'
+	    	})
+	    	.when('/category/:category', {
+	        	controller: 'CardsController'
+	    	})
+	    	.when('/:id', {
+	        	templateUrl: '/views/partials/carddetail.html',
+	        	controller: 'CardDetailController'
+	    	})
+	    	.otherwise({redirectTo: '/'});
+	}]);
 
-function cardListController($scope, $http) {
-  $http.get('/api/cards/').success(function(data, status, headers, config) {
-      $scope.creditcards = data.Cards;
-      $scope.categories = data.Categories;
-      $('#cardDetails').hide();
-  });
+var CardsController = function ($scope, $http, $filter) {
+	$http.get('/api/cards/').success(function (data) {
+		console.log(data);
+
+		$scope.cards = mapCardCategoryInfo(data.PrimaryCreditCards, 'CreditCard');
+		$scope.categories = data.ProductCategories;
+		$scope.selectedCategory = 'CreditCard';
+	});
+
+	$scope.setActive = function (category) {
+		if (category === $scope.selectedCategory) {
+            return 'active';
+        } else {
+            return '';
+        }
+	};
+
+	$scope.setCategory = function (category) {
+		$scope.selectedCategory = category;
+	};
 }
 
-function cardDetailController ($scope, $routeParams, $http) {
-  $http.get('/api/cards/' + $routeParams.id).success(function(data, status, headers, config) {
-      $scope.card = data;
-      $('#cardDetails').show();
-  });
+var CardDetailController = function ($scope, $routeParams) {
+	var i,
+	cardsLength = $scope.cards.length;
+
+	for (var i = 0; i < cardsLength; i += 1) {
+		if ($scope.cards[i].ProductCode === $routeParams.id) {
+			$scope.selectedCard = $scope.cards[i];
+		}
+	}
+};
+
+var mapCardCategoryInfo = function (cards, selectedCategory) {
+	var i, j,
+		card,
+		cardCount = cards.length,
+		cardCategories,
+		cardCategoriesLength,
+		cardCategoriesCss,
+		cardsToReturn = [];
+
+	for (i = 0; i < cardCount; i += 1) {
+		card = cards[i];
+		cardCategories = card.Categories;
+		cardCategoriesLength = cardCategories.length;
+
+		cardCategoriesCss = 'carditem ';
+		
+		for (j = 0; j < cardCategoriesLength; j += 1) {
+			cardCategoriesCss += cardCategories[j].Name + ' ';
+			card.CategoriesCss = cardCategoriesCss;
+			card.DisplayOrder = 999;
+
+			if (selectedCategory && selectedCategory === cardCategories[j].Name) {
+				card.DisplayOrder = cardCategories[j].DisplayOrder;
+			}
+		}
+		cardsToReturn.push(card);
+	}
+	return cardsToReturn;
 }
 
-app.directive('repeatDirective', function ($timeout) {
-  return function (scope, element, attr) {
-      if (scope.$last) {
-        scope.$emit('lastLoaded');
-      }
+app.directive('toggleCard', function ($location) {
+	return function (scope, element, attrs) {
+		$(element).fadeIn(500);
+		
+		scope.hideCardDetail = function () {
+			$(element).slideUp(500);
+			$(document.body).animate({scrollTop: 0}, 300);
 
-      $(element).bind('click', function () {
-        $('#cardDetails').show(300);
-         $('html, body').animate({ scrollTop: 0 }, 300);
-      });
-
-      $(element).mouseenter(function() {
-          $('.carditem').not($(this)).fadeTo(100, 0.7, function() {
-           
-          });
-     
-      }).mouseleave(function() {
-          $('.carditem').not($(this)).fadeTo(10, 1, function() {
-            // Animation complete.
-          });
-      });
-  };
+			setTimeout(function () {
+				scope.$apply(function () {
+					$location.path('/');
+				})
+			}, 500);
+		}
+	}
 })
-.directive('loadedDirective', function () {
-  return function (scope, element, attr) {
-    scope.$on('lastLoaded', function (e) {
-      $(element).isotope({
-        itemSelector: '.carditem',
-        layoutMode: 'masonry'
-      });
-    });
-  };
+
+app.directive('creditCard', function () {
+	return function (scope, element, attrs) {
+		$(element).click(function(event) {
+		    $(document.body).animate({scrollTop: 0}, 300);
+		});
+
+		$(element).addClass(scope.card.CategoriesCss);
+		$(element).data('order', scope.card.DisplayOrder);
+
+		if (scope.$last) {
+        	scope.$emit('lastItemLoaded');
+      	}
+	};
+})
+.directive('cardsLoaded', function () {
+	return function (scope, element, attrs) {
+		scope.$on('lastItemLoaded', function (e) {
+			$(element).isotope({
+        		itemSelector: '.carditem',
+        		layoutMode: 'cellsByRow',
+				cellsByRow: {
+					columnWidth: 350,
+					rowHeight: 220
+				},
+        		getSortData: {
+					order: function ($elem) {
+						return parseInt($elem.data('order'));
+					}
+				},
+				sortBy: 'order',
+				sortAscending: true
+        	});
+		});
+
+		scope.$on('filterCards', function (e, filter) {
+			$(element).isotope({
+				filter: filter
+			});
+		})
+	};
+})
+.directive('isotopeFilter', function () {
+	return function (scope, element, attrs) {
+		$(element).bind('click', function (e) {
+			scope.cards = mapCardCategoryInfo(scope.cards, attrs.filter);
+			scope.selectedCategory = attrs.filter.substring(1, attrs.filter.length);
+
+			scope.$emit('filterCards', attrs.filter);
+		});
+	}
 });

@@ -1,27 +1,34 @@
 var express = require('express'),
     fs = require('fs'),
-    api = require('./routes/api');
-
+    cards = require('./routes/cards');
+ 
 var app = express();
+
 app.configure(function () {
     app.use(express.bodyParser());
     app.use(express.methodOverride());
-    app.use(express.static(__dirname + '/public'));
-    app.use(app.router);        
+    app.use('/', express.static(__dirname + '/public/'));
+    app.use(app.router);
 });
 
-app.get('/', function (req, res) {
-    res.writeHead(200, {'Content-Type': 'text/html'});
-    res.end(fs.readFileSync(__dirname + '/public/views/index.html'));
+app.get('/', function (request, response) {
+    response.writeHead(200, {
+        'Content-Type': 'text/html'
+    });
+    response.write(fs.readFileSync(__dirname + '/public/views/index.html'));
+    response.end();
 });
 
-app.get('/cards', function (req, res) {
-    res.writeHead(200, {'Content-Type': 'text/html'});
-    res.end(fs.readFileSync(__dirname + '/public/views/creditcards.html'));
+app.get('/cards', function (request, response) {
+    response.writeHead(200, {
+        'Content-Type': 'text/html'
+    });
+    response.write(fs.readFileSync(__dirname + '/public/views/cards.html'));
+    response.end();
 });
 
-app.get('/api/cards', api.cards);
-app.get('/api/cards/:id', api.card);
+app.get('/api/cards', cards.getAll);
+//app.get('/api/cards/:id', cards.getById);
 
-app.listen(3001);
-console.log('Listening on port 3001...');
+app.listen(3000);
+console.log('Listening on port 3000...');
