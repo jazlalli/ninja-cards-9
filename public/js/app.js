@@ -1,23 +1,22 @@
 var app = angular.module('CreditCards', []).
-	config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
-	    $locationProvider.html5Mode(false);
-	    $routeProvider
-	    	.when('/', {
-	        	controller: 'CardsController'
-	    	})
-	    	.when('/category/:category', {
-	        	controller: 'CardsController'
-	    	})
-	    	.when('/:id', {
-	        	templateUrl: '/views/partials/carddetail.html',
-	        	controller: 'CardDetailController'
-	    	})
-	    	.otherwise({redirectTo: '/'});
-	}]);
+config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
+	$locationProvider.html5Mode(false);
+	$routeProvider
+	.when('/', {
+		controller: 'CardsController'
+	})
+	.when('/category/:category', {
+		controller: 'CardsController'
+	})
+	.when('/:id', {
+		templateUrl: '/views/partials/carddetail.html',
+		controller: 'CardDetailController'
+	})
+	.otherwise({redirectTo: '/'});
+}]);
 
 var CardsController = function ($scope, $http, $filter) {
 	$http.get('/api/cards/').success(function (data) {
-		console.log(data);
 
 		$scope.cards = mapCardCategoryInfo(data.PrimaryCreditCards, 'CreditCard');
 		$scope.categories = data.ProductCategories;
@@ -26,10 +25,10 @@ var CardsController = function ($scope, $http, $filter) {
 
 	$scope.setActive = function (category) {
 		if (category === $scope.selectedCategory) {
-            return 'active';
-        } else {
-            return '';
-        }
+			return 'active';
+		} else {
+			return '';
+		}
 	};
 
 	$scope.setCategory = function (category) {
@@ -50,12 +49,12 @@ var CardDetailController = function ($scope, $routeParams) {
 
 var mapCardCategoryInfo = function (cards, selectedCategory) {
 	var i, j,
-		card,
-		cardCount = cards.length,
-		cardCategories,
-		cardCategoriesLength,
-		cardCategoriesCss,
-		cardsToReturn = [];
+	card,
+	cardCount = cards.length,
+	cardCategories,
+	cardCategoriesLength,
+	cardCategoriesCss,
+	cardsToReturn = [];
 
 	for (i = 0; i < cardCount; i += 1) {
 		card = cards[i];
@@ -63,7 +62,7 @@ var mapCardCategoryInfo = function (cards, selectedCategory) {
 		cardCategoriesLength = cardCategories.length;
 
 		cardCategoriesCss = 'carditem ';
-		
+
 		for (j = 0; j < cardCategoriesLength; j += 1) {
 			cardCategoriesCss += cardCategories[j].Name + ' ';
 			card.CategoriesCss = cardCategoriesCss;
@@ -98,35 +97,35 @@ app.directive('toggleCard', function ($location) {
 app.directive('creditCard', function () {
 	return function (scope, element, attrs) {
 		$(element).click(function(event) {
-		    $(document.body).animate({scrollTop: 0}, 300);
+			$(document.body).animate({scrollTop: 0}, 300);
 		});
 
 		$(element).addClass(scope.card.CategoriesCss);
 		$(element).data('order', scope.card.DisplayOrder);
 
 		if (scope.$last) {
-        	scope.$emit('lastItemLoaded');
-      	}
+			scope.$emit('lastItemLoaded');
+		}
 	};
 })
 .directive('cardsLoaded', function () {
 	return function (scope, element, attrs) {
 		scope.$on('lastItemLoaded', function (e) {
 			$(element).isotope({
-        		itemSelector: '.carditem',
-        		layoutMode: 'cellsByRow',
+				itemSelector: '.carditem',
+				layoutMode: 'cellsByRow',
 				cellsByRow: {
 					columnWidth: 350,
 					rowHeight: 220
 				},
-        		getSortData: {
+				getSortData: {
 					order: function ($elem) {
 						return parseInt($elem.data('order'));
 					}
 				},
 				sortBy: 'order',
 				sortAscending: true
-        	});
+			});
 		});
 
 		scope.$on('filterCards', function (e, filter) {

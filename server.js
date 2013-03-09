@@ -1,30 +1,30 @@
 var express = require('express'),
-    fs = require('fs'),
-    cards = require('./routes/cards');
- 
+fs = require('fs'),
+cards = require('./routes/cards');
+
 var app = express();
 
 app.configure(function () {
-    app.use(express.bodyParser());
-    app.use(express.methodOverride());
-    app.use('/', express.static(__dirname + '/public/'));
-    app.use(app.router);
+	app.use(express.bodyParser());
+	app.use(express.methodOverride());
+	app.use('/', express.static(__dirname + '/public/'));
+	app.use(app.router);
 });
 
 app.get('/', function (request, response) {
-    response.writeHead(200, {
-        'Content-Type': 'text/html'
-    });
-    response.write(fs.readFileSync(__dirname + '/public/views/index.html'));
-    response.end();
+	response.writeHead(200, {
+		'Content-Type': 'text/html'
+	});
+	response.write(fs.readFileSync(__dirname + '/public/views/index.html'));
+	response.end();
 });
 
 app.get('/cards', function (request, response) {
-    response.writeHead(200, {
-        'Content-Type': 'text/html'
-    });
-    response.write(fs.readFileSync(__dirname + '/public/views/cards.html'));
-    response.end();
+	response.writeHead(200, {
+		'Content-Type': 'text/html'
+	});
+	response.write(fs.readFileSync(__dirname + '/public/views/cards.html'));
+	response.end();
 });
 
 app.get('/api/cards', cards.getAll);
