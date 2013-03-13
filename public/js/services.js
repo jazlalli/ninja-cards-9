@@ -1,5 +1,5 @@
 angular.module('services', [])
-	.factory('CreditCardCategoryMapper', function () {
+	.factory('categoryMapper', function () {
 		var i = 0,
 			categories,
 			numberOfCategories,
@@ -33,4 +33,9 @@ angular.module('services', [])
 			}
 			return creditCards;
 		};
-	});
+	})
+	.factory('cardFilter', ['categoryMapper', function (categoryMapper) {
+		return function (cards, selectedCategory) {
+			return categoryMapper(cards, selectedCategory);
+		};
+	}]);

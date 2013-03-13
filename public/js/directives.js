@@ -20,6 +20,7 @@ angular.module('directives', [])
 			});
 
 			scope.$on('filterCards', function (e, filter) {
+				// call service that handles isotope filtering
 				element.isotope({
 					filter: filter
 				});
@@ -40,13 +41,12 @@ angular.module('directives', [])
 			}
 		};
 	}])
-	.directive('mmCardsFilter', ['CreditCardCategoryMapper', function (CreditCardCategoryMapper) {
+	.directive('mmCardsFilter', ['cardFilter', function (cardFilter) {
 		return function (scope, element, attrs) {
 			element.bind('click', function (e) {
-				var mappedCards = CreditCardCategoryMapper(scope.cards, attrs.filter);
-				
-				scope.cards = mappedCards
 				scope.selectedCategory = attrs.filter.substring(1, attrs.filter.length);
+				scope.cards = cardFilter(scope.cards, scope.selectedCategory);
+
 				scope.$emit('filterCards', attrs.filter);
 			});
 		}

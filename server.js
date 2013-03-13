@@ -28,7 +28,7 @@ app.get('/cards', function (request, response) {
 });
 
 app.get('/api/cards', cards.getAll);
-//app.get('/api/cards/:id', cards.getById);
+app.get('/api/cards/:id', cards.getById);
 
 app.listen(3000);
 console.log('Listening on port 3000...');

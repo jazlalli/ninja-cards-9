@@ -10,7 +10,7 @@ angular.module('CreditCards', ['controllers', 'directives', 'services'])
 		})
 		.when('/card/:id', {
 			templateUrl: '/views/partials/carddetail.html',
-			controller: 'CardsController'
+			controller: 'CardDetailController'
 		})
 		.otherwise({redirectTo: '/'});
 	}]);
