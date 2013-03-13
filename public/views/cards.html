@@ -14,11 +14,9 @@
     <link rel="stylesheet" href="/css/bootstrap.css" media="screen" />
     <link rel="stylesheet" href="/css/site.css" />
 
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.5/angular.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script src="/js/vendor/bootstrap.min.js"></script>
-    <script src="/js/vendor/jquery.isotope.min.js"></script>
-    <script src="/js/app.js"></script>
+    <script src="/scripts/vendor/bootstrap.min.js"></script>
+    <script src="/scripts/vendor/jquery.isotope.min.js"></script>
   </head>
   <body ng-app="CreditCards" ng-controller="CardsController">
     <!--[if lt IE 7]>
@@ -33,16 +31,16 @@
           <ul class="nav nav-list well sidebar-nav affix" style="width: 190px; margin-top: 5px;">
             <li class="nav-header">Card Types</li>
             <li ng-repeat="category in categories" ng-class="setActive(category.Name)">
-              <a href="#/category/{{category.Name}}" data-filter=".{{category.Name}}" ng-click="setCategory(category.Name)" isotope-filter>
+              <a href="#/category/{{category.Name}}" data-filter=".{{category.Name}}" ng-click="setCategory(category.Name)" mm-cards-filter>
                 {{category.Text}} <small>({{category.Count}})</small>
               </a>
             </li>
           </ul>
         </div>
         <div class="span10">
-          <ul id="cardgrid" cards-loaded>
+          <ul id="cardgrid" mm-cards-grid>
             <li ng-repeat="card in cards">
-              <a href="#/{{card.ProductCode}}" credit-card>  
+              <a href="#/card/{{card.ProductCode}}" mm-card-item>
                 <img ng-src="{{card.ImageUrl}}" alt="{{card.Name}}">
                 <h5>{{card.Name}}</h5>
               </a>
@@ -51,5 +49,11 @@
         </div>
       </div>
     </div>
+
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.5/angular.js"></script>
+    <script src="/scripts/app.js"></script>
+    <script src="/scripts/controllers.js"></script>
+    <script src="/scripts/services.js"></script>
+    <script src="/scripts/directives.js"></script>
   </body>
 </html>
