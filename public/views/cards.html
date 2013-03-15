@@ -15,8 +15,14 @@
     <link rel="stylesheet" href="/css/site.css" />
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script src="/js/vendor/bootstrap.min.js"></script>
     <script src="/js/vendor/jquery.isotope.min.js"></script>
+    <script src="/js/vendor/bootstrap.min.js"></script>    
+
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.5/angular.js"></script>
+    <script src="/js/app.js"></script>
+    <script src="/js/controllers.js"></script>
+    <script src="/js/services.js"></script>
+    <script src="/js/directives.js"></script>
   </head>
   <body ng-app="CreditCards" ng-controller="CardsController">
     <!--[if lt IE 7]>
@@ -31,8 +37,8 @@
           <ul class="nav nav-list well sidebar-nav affix" style="width: 190px; margin-top: 5px;">
             <li class="nav-header">Card Types</li>
             <li ng-repeat="category in categories" ng-class="setActive(category.Name)">
-              <a href="#/category/{{category.Name}}" data-filter=".{{category.Name}}" ng-click="setCategory(category.Name)" mm-cards-filter>
-                {{category.Text}} <small>({{category.Count}})</small>
+              <a href="#/{{category.Name}}" data-filter=".{{category.Name}}" mm-cards-filter>
+                {{category.Text}}
               </a>
             </li>
           </ul>
@@ -49,11 +55,5 @@
         </div>
       </div>
     </div>
-
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.5/angular.js"></script>
-    <script src="/js/app.js"></script>
-    <script src="/js/controllers.js"></script>
-    <script src="/js/services.js"></script>
-    <script src="/js/directives.js"></script>
   </body>
 </html>

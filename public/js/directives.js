@@ -1,5 +1,5 @@
 angular.module('directives', [])
-	.directive('mmCardsGrid', function () {
+	.directive('mmCardsGrid', ['cardFilter', function (cardFilter) {
 		return function (scope, element, attrs) {
 			scope.$on('lastItemLoaded', function (e) {
 				element.isotope({
@@ -17,16 +17,22 @@ angular.module('directives', [])
 					sortBy: 'order',
 					sortAscending: true
 				});
+
+				scope.$emit('filterCards', scope.selectedCategory);
 			});
 
 			scope.$on('filterCards', function (e, filter) {
-				// call service that handles isotope filtering
-				element.isotope({
-					filter: filter
-				});
+				if (filter.substring(0, 1) === '.') {
+					scope.selectedCategory = filter.substring(1, filter.length);	
+				} else {
+					scope.selectedCategory = filter;	
+				}
+				
+				scope.cards = cardFilter(scope.cards, scope.selectedCategory);
+				element.isotope({ filter: '.' + scope.selectedCategory });
 			});
 		};
-	})
+	}])
 	.directive('mmCardItem', ['$window', function ($window) {
 		return function (scope, element, attrs) {
 			element.click(function() {
@@ -41,12 +47,9 @@ angular.module('directives', [])
 			}
 		};
 	}])
-	.directive('mmCardsFilter', ['cardFilter', function (cardFilter) {
+	.directive('mmCardsFilter', [function () {
 		return function (scope, element, attrs) {
 			element.bind('click', function (e) {
-				scope.selectedCategory = attrs.filter.substring(1, attrs.filter.length);
-				scope.cards = cardFilter(scope.cards, scope.selectedCategory);
-
 				scope.$emit('filterCards', attrs.filter);
 			});
 		}

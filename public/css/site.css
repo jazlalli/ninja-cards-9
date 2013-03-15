@@ -113,6 +113,17 @@
 .carditem img {
     width: 70%;
 }
+/**** Isotope Filtering ****/
+
+.isotope-item {
+  z-index: 2;
+}
+
+.isotope-hidden.isotope-item {
+  pointer-events: none;
+  z-index: 1;
+}
+
 .hero-content {
     position: relative;
     padding-bottom: 40px;

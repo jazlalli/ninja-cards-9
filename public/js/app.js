@@ -5,7 +5,7 @@ angular.module('CreditCards', ['controllers', 'directives', 'services'])
 		.when('/', {
 			controller: 'IndexController'
 		})
-		.when('/category/:category', {
+		.when('/:category', {
 			controller: 'CardsController'
 		})
 		.when('/card/:id', {

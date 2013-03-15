@@ -14,9 +14,6 @@ angular.module('controllers', ['services'])
 			} else {
 				$scope.selectedCategory = 'CreditCard';
 			}
-
-			console.log($scope);
-			$scope.$emit('filterCards', $scope.selectedCategory);
 		});
 
 		$scope.setActive = function (category) {

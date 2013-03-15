@@ -1,22 +1,21 @@
 angular.module('services', [])
 	.factory('categoryMapper', function () {
-		var i = 0,
+		var i, j,
 			categories,
 			numberOfCategories,
 			card;
 
 		return function (creditCards, selectedCategory) {
-			var numberOfCards = creditCards.length,
-				categoriesCss = 'carditem ';
+			var categoriesCss,
+				numberOfCards = creditCards.length;
 
-			while (i < numberOfCards) {
-				var j = 0;
-				card = creditCards[i];
+			for (i = 0; i < numberOfCards; i += 1) {
+				categoriesCss = 'carditem ',
+				card = creditCards[i],
 				categories = card.Categories,
 				numberOfCategories = categories.length;
 
-
-				while (j < numberOfCategories) {
+				for (j = 0; j < numberOfCategories; j += 1) {
 					categoriesCss += categories[j].Name + ' ';
 					card.CategoriesCss = categoriesCss;
 					card.DisplayOrder = 999;
@@ -24,12 +23,9 @@ angular.module('services', [])
 					if (selectedCategory && selectedCategory === categories[j].Name) {
 						card.DisplayOrder = categories[j].DisplayOrder;
 					}
-					
-					j += 1;
 				}
 
 				creditCards[i] = card;
-				i += 1;
 			}
 			return creditCards;
 		};
