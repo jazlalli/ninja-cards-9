@@ -34,7 +34,7 @@
     <div id="cardsearchcontainer" class="container-fluid">
       <div class="row-fluid">
         <div class="span2">
-          <ul class="nav nav-list well sidebar-nav affix" style="width: 190px; margin-top: 5px;">
+          <ul class="nav nav-list well sidebar-nav affix" style="width: 190px; margin-top: 20px;">
             <li class="nav-header">Card Types</li>
             <li ng-repeat="category in categories" ng-class="setActive(category.Name)">
               <a href="#/{{category.Name}}" data-filter=".{{category.Name}}" mm-cards-filter>
@@ -47,6 +47,7 @@
           <ul id="cardgrid" mm-cards-grid>
             <li ng-repeat="card in cards">
               <a href="#/card/{{card.ProductCode}}" mm-card-item>
+                <div class="badge">?</div>
                 <img ng-src="{{card.ImageUrl}}" alt="{{card.Name}}">
                 <h5>{{card.Name}}</h5>
               </a>

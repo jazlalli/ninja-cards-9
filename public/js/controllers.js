@@ -32,6 +32,8 @@ angular.module('controllers', ['services'])
 		if ($routeParams.id) {
 			$http.get('/api/cards/' + $routeParams.id).success(function (data) {
 				$scope.selectedCard = data;
+
+				console.log($scope.selectedCard);
 			});
 		}
 	}]);

@@ -212,11 +212,11 @@ body {
   background-color: #ffffff;
 }
 a {
-  color: #0088cc;
+  color: #07435B;
   text-decoration: none;
 }
 a:hover {
-  color: #005580;
+  color: #287C9E;
   text-decoration: underline;
 }
 .img-rounded {
@@ -2624,10 +2624,10 @@ input[type="button"].btn-block {
 .btn-warning {
   color: #ffffff;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-  background-color: #faa732;
-  border-color: #f89406 #f89406 #ad6704;
+  background-color: #FF8833;
+  border-color: #FF6B00 #FF6B00 #ad6704;
   border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-  *background-color: #f89406;
+  *background-color: #FF6B00;
   /* Darken IE7 buttons by default so they stand out more given they won't have borders */
 
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
@@ -2638,7 +2638,7 @@ input[type="button"].btn-block {
 .btn-warning.disabled,
 .btn-warning[disabled] {
   color: #ffffff;
-  background-color: #f89406;
+  background-color: #FF6B00;
   *background-color: #df8505;
 }
 .btn-warning:active,
@@ -2778,10 +2778,10 @@ input[type="submit"].btn.btn-mini {
 .btn-link {
   border-color: transparent;
   cursor: pointer;
-  color: #0088cc;
+  color: #07435B;
 }
 .btn-link:hover {
-  color: #005580;
+  color: #287C9E;
   text-decoration: underline;
   background-color: transparent;
 }
@@ -2921,7 +2921,7 @@ input[type="submit"].btn.btn-mini {
   background-color: #0044cc;
 }
 .btn-group.open .btn-warning.dropdown-toggle {
-  background-color: #f89406;
+  background-color: #FF6B00;
 }
 .btn-group.open .btn-danger.dropdown-toggle {
   background-color: #bd362f;
@@ -3083,7 +3083,7 @@ input[type="submit"].btn.btn-mini {
 .nav-list > .active > a:hover {
   color: #ffffff;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
-  background-color: #0088cc;
+  background-color: #07435B;
 }
 .nav-list [class^="icon-"],
 .nav-list [class*=" icon-"] {
@@ -3157,7 +3157,7 @@ input[type="submit"].btn.btn-mini {
 .nav-pills > .active > a,
 .nav-pills > .active > a:hover {
   color: #ffffff;
-  background-color: #0088cc;
+  background-color: #07435B;
 }
 .nav-stacked > li {
   float: none;
@@ -3198,13 +3198,13 @@ input[type="submit"].btn.btn-mini {
   margin-bottom: 1px;
 }
 .nav .dropdown-toggle .caret {
-  border-top-color: #0088cc;
-  border-bottom-color: #0088cc;
+  border-top-color: #07435B;
+  border-bottom-color: #07435B;
   margin-top: 6px;
 }
 .nav .dropdown-toggle:hover .caret {
-  border-top-color: #005580;
-  border-bottom-color: #005580;
+  border-top-color: #287C9E;
+  border-bottom-color: #287C9E;
 }
 /* move down carets for tabs */
 .nav-tabs .dropdown-toggle .caret {
@@ -4280,7 +4280,7 @@ input[type="submit"].btn.btn-mini {
   box-shadow: none;
 }
 a.thumbnail:hover {
-  border-color: #0088cc;
+  border-color: #07435B;
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
@@ -4361,7 +4361,7 @@ a.badge:hover {
 }
 .label-warning,
 .badge-warning {
-  background-color: #f89406;
+  background-color: #FF6B00;
 }
 .label-warning[href],
 .badge-warning[href] {
@@ -4510,7 +4510,7 @@ a.badge:hover {
 }
 .progress-warning .bar,
 .progress .bar-warning {
-  background-color: #faa732;
+  background-color: #FF8833;
 }
 .progress-warning.progress-striped .bar,
 .progress-striped .bar-warning {

@@ -6,8 +6,8 @@ angular.module('directives', [])
 					itemSelector: '.carditem',
 					layoutMode: 'cellsByRow',
 					cellsByRow: {
-						columnWidth: 350,
-						rowHeight: 220
+						columnWidth: 335,
+						rowHeight: 210
 					},
 					getSortData: {
 						order: function (elem) {

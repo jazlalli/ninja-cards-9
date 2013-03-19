@@ -23,19 +23,18 @@
     margin-top: 3px;
     padding-right: 5px;
 }
-
 .jumbotron {
     padding: 40px 0;
     color: #fff;
     text-shadow: 0 1px 3px rgba(0,0,0,.4), 0 0 30px rgba(0,0,0,.075);
-    background: #020031;
-    background: -moz-linear-gradient(45deg, #020031 0%, #6d3353 100%);
-    background: -webkit-gradient(linear, left bottom, right top, color-stop(0%,#020031), color-stop(100%,#6d3353));
-    background: -webkit-linear-gradient(45deg, #020031 0%,#6d3353 100%);
-    background: -o-linear-gradient(45deg, #020031 0%,#6d3353 100%);
-    background: -ms-linear-gradient(45deg, #020031 0%,#6d3353 100%);
-    background: linear-gradient(45deg, #020031 0%,#6d3353 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#020031', endColorstr='#6d3353',GradientType=1 );
+    background: #07435B;
+    background: -moz-linear-gradient(45deg, #07435B 0%, #287C9E 100%);
+    background: -webkit-gradient(linear, left bottom, right top, color-stop(0%,#07435B), color-stop(100%,#287C9E));
+    background: -webkit-linear-gradient(45deg, #07435B 0%,#287C9E 100%);
+    background: -o-linear-gradient(45deg, #07435B 0%,#287C9E 100%);
+    background: -ms-linear-gradient(45deg, #07435B 0%,#287C9E 100%);
+    background: linear-gradient(45deg, #07435B 0%,#287C9E 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#07435B', endColorstr='#287C9E',GradientType=1 );
     -webkit-box-shadow: inset 0 3px 7px rgba(0,0,0,.2), inset 0 -3px 7px rgba(0,0,0,.2);
     -moz-box-shadow: inset 0 3px 7px rgba(0,0,0,.2), inset 0 -3px 7px rgba(0,0,0,.2);
     box-shadow: inset 0 3px 7px rgba(0,0,0,.2), inset 0 -3px 7px rgba(0,0,0,.2);
@@ -46,10 +45,10 @@
     position: absolute;
     top: 0;
     right: 0;
-    bottom: 60px;
+    bottom: 5px;
     left: 0;
     background: url(../img/bs-docs-masthead-pattern.png) repeat center center;
-    opacity: .4;
+    opacity: .5;
 }
 .masthead {
     padding: 50px 80px;
@@ -78,13 +77,17 @@
     -o-transition: all .5s ease;
     transition: all .5s ease;
 }
+#cardgrid {
+    padding-top: 10px;
+}
 #cardgrid a {
     text-decoration: none;
 }
+
 .carditem {
     border: 1px solid #eee;
-    width: 330px;
-    height: 190px;
+    width: 310px;
+    height: 180px;
     margin: 5px;
     padding: 5px;
     position: relative;
@@ -110,9 +113,61 @@
     -o-transition:all .1s ease-in-out;
     transition:all .1s ease-in-out;
 }
+.carditem:hover .badge {
+    background: #fff;
+    border: 1px solid #ff5a00;
+    color: #ff5a00;
+}
 .carditem img {
     width: 70%;
 }
+.badge {
+    -webkit-border-radius: 999px;
+    -moz-border-radius: 999px;
+    border-radius: 999px;
+    width: 36px;
+    height: 36px;
+    padding: 8px;
+    background: #07435B;
+    border: 1px solid #eee;
+    color: #fff;
+    text-align: center;
+    font: 32px Arial, sans-serif;
+    top: -18px;
+    right: -10px;
+    position: absolute;
+    z-index: 9999px;
+}
+#features {
+    width: 100%;
+    border-bottom: 1px #ddd solid;
+    padding-top: 5px;
+}
+#features .row-fluid{
+    margin-top: 20px;
+}
+#features .item.active{
+    min-height: 205px;
+}
+.pro-icon {
+    font-size: 24px;
+    font-weight: bold;
+    background: url(../img/pros.png) top left no-repeat;
+    padding-left: 45px;
+    height: 29px;
+    vertical-align: middle;
+    margin-bottom: 20px;
+}
+.con-icon {
+    font-size: 24px;
+    font-weight: bold;
+    background: url(../img/cons.png) top left no-repeat;
+    padding-left: 45px;
+    height: 29px;
+    vertical-align: middle;
+    margin-bottom: 20px;
+}
+
 /**** Isotope Filtering ****/
 
 .isotope-item {
