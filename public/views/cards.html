@@ -47,9 +47,30 @@
           <ul id="cardgrid" mm-cards-grid>
             <li ng-repeat="card in cards">
               <a href="#/card/{{card.ProductCode}}" mm-card-item>
-                <div class="badge">?</div>
+                <abbr title="What are my chances?">
+                  <div class="badge">?</div>
+                </abbr>
                 <img ng-src="{{card.ImageUrl}}" alt="{{card.Name}}">
-                <h5>{{card.Name}}</h5>
+                <div class="cardinfo">
+                  <h5>{{card.Name}}</h5>
+                  <table class="table table-condensed">
+                    <tbody>
+                      <tr>
+                        <td><b>APR</b></td>
+                        <td>{{card.Apr}}%</td>
+                      </tr>
+                      <tr>
+                        <td><b>Offer Type</b></td>
+                        <td>{{selectedCategory}}</td>
+                      </tr>
+                      <tr>
+                        <td><b>Rating</b></td>
+                        <td>7 / 10</td>
+                      </tr>                      
+                    </tbody>
+                  </table>
+                  <p>Can I get this card? Click to find out!</p>
+                </div>
               </a>
             </li>
           </ul>

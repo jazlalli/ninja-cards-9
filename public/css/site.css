@@ -103,20 +103,13 @@
     -o-transition:all 1s ease-in-out;
     transition:all 1s ease-in-out;
 }
-.carditem:hover {
-    border: 1px solid #eee;
-    background-color: #eee;
-    color: #333;
-    text-decoration: none;
-    -webkit-transition:all .1s ease-in-out;
-    -moz-transition:all .1s ease-in-out;
-    -o-transition:all .1s ease-in-out;
-    transition:all .1s ease-in-out;
-}
 .carditem:hover .badge {
     background: #fff;
     border: 1px solid #ff5a00;
     color: #ff5a00;
+}
+.carditem:hover .cardinfo {
+    visibility: visible;
 }
 .carditem img {
     width: 70%;
@@ -128,6 +121,7 @@
     width: 36px;
     height: 36px;
     padding: 8px;
+    margin: 3px;
     background: #07435B;
     border: 1px solid #eee;
     color: #fff;
@@ -136,21 +130,31 @@
     top: -18px;
     right: -10px;
     position: absolute;
-    z-index: 9999px;
+    z-index: 999px;
+}
+.cardinfo {
+    color: #333;
+    visibility: hidden;
+    position: absolute;
+    z-index: -999px;
+    width: 80%;
+    padding-left: 25px;
+    top: 0;
+    left: 0;
 }
 #features {
     width: 100%;
     border-bottom: 1px #ddd solid;
-    padding-top: 5px;
+    padding-top: 10px;
 }
 #features .row-fluid{
-    margin-top: 20px;
+    margin-top: 10px;
 }
 #features .item.active{
-    min-height: 205px;
+    min-height: 185px;
 }
 .pro-icon {
-    font-size: 24px;
+    font-size: 20px;
     font-weight: bold;
     background: url(../img/pros.png) top left no-repeat;
     padding-left: 45px;
@@ -159,7 +163,7 @@
     margin-bottom: 20px;
 }
 .con-icon {
-    font-size: 24px;
+    font-size: 20px;
     font-weight: bold;
     background: url(../img/cons.png) top left no-repeat;
     padding-left: 45px;
