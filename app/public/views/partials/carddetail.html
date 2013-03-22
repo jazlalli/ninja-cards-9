@@ -1,0 +1,146 @@
+<div id="carddetail" style="display: none; margin-bottom: 20px;" mm-card-details>
+  <div class="hero-unit jumbotron masthead">
+    <h1>
+      <span>{{selectedCard.BalanceTransferText}}</span>
+      <span ng-show="false">{{selectedCard.PurchasesText}}</span>
+    </h1>
+
+    <h3>{{selectedCard.Name}}</h3>
+
+    <div class="row-fluid">
+      <div class="span12">
+        <div class="hero-content">
+          <img class="pull-left" ng-src="{{selectedCard.ImageUrl}}" alt="{{selectedCard.Name}}" />
+          <ul>
+            <li ng-repeat="detail in selectedCard.BulletsPositive">{{detail}}</li>
+          </ul>
+
+          <div class="pull-right">
+            <a class="btn btn-large btn-inverse" ng-click="hideCardDetail()">Keep Browsing</a>
+            <a class="btn btn-large btn-warning" ng-click="">Check My Eligibility</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div id="features">    
+    <div id="myCarousel" class="carousel slide">
+      <div class="carousel-inner">  
+        
+        <div class="item active ">
+          <div class="row-fluid">
+            <div class="offset1 span5">
+              <div class="pro-icon">Pros</div >
+              <ul style="list-style-type: none;">
+                <li><i class="icon-ok"></i> One of the best offers for people spending over £10k a year</li>
+                <li><i class="icon-ok"></i> Some additional benefits that we think you'll really like</li>
+              </ul>
+            </div>
+            <div class="span5">
+              <div class="con-icon">Cons</div>
+              <ul style="list-style-type: none;">
+                <li><i class="icon-remove"></i> One of the tightest acceptance rates on the market</li>
+                <li><i class="icon-remove"></i> American Express not as widely accepted as other types of card</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="row-fluid">
+            <div class="offset1 span10">
+              <h4>Features</h4>
+            </div>
+          </div>
+          <div class="row-fluid">
+            <div class="offset1 span5">
+              <ul>
+                <li>3 Avios for every pound spent on British Airways flights</li>
+                <li>1.5 Avios for every pound spent elsewhere</li>
+                <li>Companion voucher when you spend £30 a year</li>
+              </ul>
+            </div>
+            <div class="span5">
+              <ul>
+                <li>25,000 bonus Avios welcome offer</li>
+                <li>Earn 25,000 Avios when you spend £3,000 in the first 3 months</li>
+                <li>Automatic enrolment to the British Airways Executive Club</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="row-fluid">
+            <div class="offset1 span10">
+              <h4>Rates and Fees</h4>
+            </div>
+          </div>
+          <div class="row-fluid">
+            <div class="offset1 span10">
+              <table class="table table-condensed table-bordered">
+                <thead>
+                  <tr>
+                    <th colspan="2">Balance Transfer</th>
+                    <th colspan="2">Purchase</th>
+                    <th colspan="2">APR</th>
+                    <th colspan="2">Key Facts</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Intro Rate</td>
+                    <td>{{selectedCard.OfferDetail.IntroBalTranRateAER}}%</td>
+                    <td>Intro Rate</td>
+                    <td>{{selectedCard.OfferDetail.IntroPurchaseRateAER}}%</td>
+                    <td>Balance Transfers</td>
+                    <td>{{selectedCard.OfferDetail.BalanceTransferAER}}%</td>
+                    <td>Annual Fee</td>
+                    <td>£{{selectedCard.OfferDetail.AnnualFee}}</td>
+                  </tr>
+                  <tr>
+                    <td>Duration</td>
+                    <td>{{selectedCard.OfferDetail.DurationofBalRateM}} months</td>
+                    <td>Duration</td>
+                    <td>{{selectedCard.OfferDetail.DurationofPurchRateM}} months</td>
+                    <td>Purchases</td>
+                    <td>{{selectedCard.OfferDetail.RepresentativeAPR}}%</td>
+                    <td>Cash Advance Fee</td>
+                    <td>{{selectedCard.OfferDetail.CashAdvanceAER}}%</td>
+                  </tr>
+                  <tr>
+                    <td>Fee</td>
+                    <td>{{selectedCard.OfferDetail.IntroBalanceTfrFee}}%</td>
+                    <td></td>
+                    <td></td>
+                    <td>Money Transfers</td>
+                    <td>{{selectedCard.OfferDetail.RepresentativeAPR}}%</td>
+                    <td>Minimum Age</td>
+                    <td>{{selectedCard.OfferDetail.MinAge}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+      <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+    </div>
+  
+    <div style="text-align:center;">
+      <p>
+        <small>
+          <b>Representative Example: </b>If you spend £{{selectedCard.OfferDetail.RepresentativeExampleCreditLimit}} at an interest rate of {{selectedCard.OfferDetail.RepresentativeAPR}}% (variable) your Representative APR will be {{selectedCard.OfferDetail.RepresentativeAPR}}% (variable)
+        </small>
+      </p>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  $('.carousel').carousel({
+    interval: 5000
+  })
+</script>
