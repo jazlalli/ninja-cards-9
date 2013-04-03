@@ -11,13 +11,18 @@
 
     <title>Credit Cards</title>
 
+    <style>[ng-cloak] {display: none}</style>
     <link rel="stylesheet" href="/css/bootstrap.css" media="screen" />
     <link rel="stylesheet" href="/css/site.css" />
 
-    <script data-main="/js/app-main" src="/libs/require-jquery.js"></script>
-    <style>[ng-cloak] {display: none}</style>
+    <script type="text/javascript" src="/libs/require-jquery.js"></script>
+    <script type="text/javascript">
+      require(['../js/common'], function (common) {
+        require(['../js/main-app']);
+      });
+    </script>
   </head>
-  <body ng-controller="cardsController">
+  <body ng-controller="cardsController" ng-cloak>
     <!--[if lt IE 7]>
         <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
     <![endif]-->
@@ -27,14 +32,19 @@
     <div id="cardsearchcontainer" class="container-fluid">
       <div class="row-fluid">
         <div class="span2">
-          <ul class="nav nav-list well sidebar-nav affix" style="width: 190px; margin-top: 20px;">
-            <li class="nav-header">Card Types</li>
-            <li ng-repeat="category in categories" ng-class="setActive(category.Name)">
-              <a href="#/{{category.Name}}" data-filter=".{{category.Name}}" mm-cards-filter>
-                {{category.Text}}
-              </a>
-            </li>
-          </ul>
+          <div class="sidebar-nav affix">
+            <ul class="nav nav-list well" style="width: 190px; margin-top: 20px;">
+              <li class="nav-header">Card Types</li>
+              <li ng-repeat="category in categories" ng-class="setActive(category.Name)">
+                <a href="#/{{category.Name}}" data-filter=".{{category.Name}}" mm-cards-filter>
+                  {{category.Text}}
+                </a>
+              </li>
+            </ul>
+            <div style="margin-top:15px; text-align:center;">
+              <a href="#/category/select" class="btn btn-warning">What Cards Are Best For Me?</a>
+            </div>
+          </div>
         </div>
         <div class="span10">
           <ul id="cardgrid" mm-cards-grid>
@@ -49,16 +59,12 @@
                   <table class="table table-condensed">
                     <tbody>
                       <tr>
-                        <td><b>APR</b></td>
-                        <td>{{card.Apr}}%</td>
+                        <td><b>Purchases</b></td>
+                        <td>{{card.PurchasesText}}</td>
                       </tr>
                       <tr>
-                        <td><b>Offer Type</b></td>
-                        <td>{{selectedCategory}}</td>
-                      </tr>
-                      <tr>
-                        <td><b>Rating</b></td>
-                        <td>7 / 10</td>
+                        <td><b>Balance Transfers</b></td>
+                        <td>{{card.BalanceTransferText}}</td>
                       </tr>                      
                     </tbody>
                   </table>

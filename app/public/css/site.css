@@ -4,7 +4,7 @@
 #bgmain {
     background: url(../img/wood.png) no-repeat;
     background-size: 100%;
-    padding-top: 90px;
+    padding-top: 60px;
     color: #fff;
 }
 #bgmain span,
@@ -51,22 +51,25 @@
     opacity: .5;
 }
 .masthead {
-    padding: 50px 80px;
+    padding: 30px 0px;
     margin-bottom: 0;
     color: #fff;
 }
+#contentmain {
+    text-align: center;
+}
 .featurette-divider {
-    margin: 50px 0;
+    margin: 60px 0;
 }
 .featurette {
-    padding-top: 120px;
+    padding-top: 20px;
     overflow: hidden;
 }
 .featurette-image {
-    margin-top: -120px;
+    margin-top: -100px;
 }
 .featurette-heading {
-    font-size: 50px;
+    font-size: 48px;
     font-weight: 300;
     line-height: 1;
     letter-spacing: -1px;
@@ -109,7 +112,7 @@
     color: #ff5a00;
 }
 .carditem:hover .cardinfo {
-    visibility: visible;
+    opacity: 0.9;
 }
 .carditem img {
     width: 70%;
@@ -134,13 +137,13 @@
 }
 .cardinfo {
     color: #333;
-    visibility: hidden;
     position: absolute;
     z-index: -999px;
     width: 80%;
     padding-left: 25px;
     top: 0;
     left: 0;
+    opacity: 0;
 }
 #features {
     width: 100%;
@@ -151,7 +154,7 @@
     margin-top: 10px;
 }
 #features .item.active{
-    min-height: 185px;
+    min-height: 199px;
 }
 .pro-icon {
     font-size: 20px;
@@ -170,6 +173,11 @@
     height: 29px;
     vertical-align: middle;
     margin-bottom: 20px;
+}
+#categoryModal .control-label {
+    width: 40%;
+    margin-right: 10px; 
+
 }
 
 /**** Isotope Filtering ****/

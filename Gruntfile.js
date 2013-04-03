@@ -1,5 +1,4 @@
 module.exports = function (grunt) {
-
     'use strict';
 
     grunt.initConfig({
@@ -21,13 +20,26 @@ module.exports = function (grunt) {
             compile:{
                 options:{
                     appDir: "app",
+                    baseUrl: "public/js",
                     dir: "app-built",
-                    baseUrl: "app/public/js",
-                    mainConfigFile:"app/public/js/app-main.js",
+                    mainConfigFile:"app/public/js/main-app.js",
                     optimize: "uglify",
                     modules: [
                         {
-                            name: "app-main",
+                            name: "common",
+                            include: ["lib/bootstrap"],
+                            exclude: ["lib/jquery"]
+                        },
+                        {
+                            name: "main-index",
+                            include: [],
+                            exclude: [
+                                "lib/common",
+                                "lib/jquery"
+                            ]
+                        },
+                        {
+                            name: "main-app",
                             include: [
                                 "app",
                                 "bootstrapper",
@@ -39,6 +51,10 @@ module.exports = function (grunt) {
                                 "directives/cardDetailsDirective",
                                 "services/categoryMappingservice",
                                 "libs/angular"
+                            ],
+                            exclude: [
+                                "common",
+                                "jquery"
                             ]
                         }
                     ]

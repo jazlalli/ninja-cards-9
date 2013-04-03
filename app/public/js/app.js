@@ -14,6 +14,10 @@ define(['libs/angular'], function (angular) {
 			templateUrl: '/views/partials/carddetail.html',
 			controller: 'cardDetailController'
 		})
+		.when('/category/select', {
+			templateUrl: '/views/partials/categoryselect.html',
+			controller: 'categorySelectController'
+		})
 		.otherwise({redirectTo: '/'});
 	}]);
 

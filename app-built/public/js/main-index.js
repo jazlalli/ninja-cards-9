@@ -1,7 +1,11 @@
 define(function (require) {
 	'use strict';
 
-	require({}, function () {
+	requirejs.config({
+		baseUrl: '/js/'
+    });
+
+	require([], function () {
 		console.log('index');
 	});
 });

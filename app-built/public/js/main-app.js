@@ -1,7 +1,8 @@
 define(function (require) {
     'use strict';
 
-    require({
+    requirejs.config({
+        baseUrl: '/js/',
         map:{
             '*':{
                 'libs/angular':'../libs/angular',
@@ -9,15 +10,15 @@ define(function (require) {
             }
         },
         paths: {
-            'isotope': '../libs/jquery.isotope',
-            'bootstrap': '../libs/bootstrap'
+            'isotope': '../libs/jquery.isotope'
         },
         shim:{
             '../libs/angular':{ exports:'angular' },
-            'isotope':{ exports:'$.fn.isotope' },
-            'bootstrap':{ exports:'$.fn.carousel' }
+            'isotope':{ exports:'$.fn.isotope' }
         }
-    }, ['app',
+    });
+
+    require(['app',
         'bootstrapper',
         'controllers/cardsController',
         'controllers/cardDetailController',
@@ -28,6 +29,6 @@ define(function (require) {
         'services/categoryMappingservice',
         'libs/angular'
     ], function (app) {
-        console.log('app start');
+        console.log('main cards app start');
     });
 });

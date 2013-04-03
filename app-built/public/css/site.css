@@ -12,7 +12,7 @@
     display: inline-block;
     color: white;
     margin: -5px 0;
-    background: rgb(21, 21, 21); /* fallback color */
+    background: rgb(21, 21, 21); 
     background: rgba(21, 21, 21, 0.7);
     padding: 10px;
 }
@@ -83,7 +83,6 @@
 #cardgrid a {
     text-decoration: none;
 }
-
 .carditem {
     border: 1px solid #eee;
     width: 310px;
@@ -171,18 +170,13 @@
     vertical-align: middle;
     margin-bottom: 20px;
 }
-
-/**** Isotope Filtering ****/
-
 .isotope-item {
   z-index: 2;
 }
-
 .isotope-hidden.isotope-item {
   pointer-events: none;
   z-index: 1;
 }
-
 .hero-content {
     position: relative;
     padding-bottom: 40px;

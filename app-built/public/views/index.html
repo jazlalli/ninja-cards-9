@@ -14,7 +14,12 @@
     <link rel="stylesheet" href="/css/bootstrap.css" media="screen" />
     <link rel="stylesheet" href="/css/site.css" />
 
-    <script data-main="/js/index-main" src="/libs/require-jquery.js"></script>
+    <script type="text/javascript" src="/libs/require-jquery.js"></script>
+    <script type="text/javascript">
+      require(['../js/common'], function (common) {
+        require(['../js/main-index']);
+      });
+    </script>
   </head>
   <body>
     <!--[if lt IE 7]>
