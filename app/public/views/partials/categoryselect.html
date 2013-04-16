@@ -6,22 +6,41 @@
 	<div class="modal-body">
 		<form class="form-horizontal">
 			<div class="control-group">
-				<label class="control-label" for="inputEmail">Do you have an outstanding Credit Card balance?</label>
+				<label class="control-label" for="fullrepayment">Will you pay your balance in full at the end of each month?</label>
 				<div class="controls">
 					<label class="radio inline">
-				  		<input type="radio" name="optionRadios" id="inlineRadio1" value="option1" ng-model="balance"> Yes
+				  		<input type="radio" name="fullrepayment" id="fullrepayment1" value="true" ng-model="fullrepayment"> Yes
 					</label>
 					<label class="radio inline">
-				  		<input type="radio" name="optionRadios" id="inlineRadio2" value="option2"> No
+				  		<input type="radio" name="fullrepayment" id="fullrepayment2" value="false" ng-model="fullrepayment"> No
 					</label>
 				</div>
 			</div>
-			<div class="control-group" ng-show="balance">
-				<label class="control-label" for="inputPassword">Will you pay your balance in full each month?</label>
+			
+			<div class="control-group" ng-show="fullrepayment === false">
+				<label class="control-label" for="outstandingbalance">Do you have an outstanding balance on another credit card?</label>
 				<div class="controls">
-					<input type="password" id="inputPassword" placeholder="Password">
+					<label class="radio inline">
+				  		<input type="radio" name="outstandingbalance" id="outstandingbalance1" value="true" ng-model="outstandingbalance"> Yes
+					</label>
+					<label class="radio inline">
+				  		<input type="radio" name="outstandingbalance" id="outstandingbalance2" value="false" ng-model="outstandingbalance"> No
+					</label>
 				</div>
 			</div>
+
+			<div class="control-group" ng-show="fullrepayment === true">
+				<label class="control-label" for="rewardscashback">Do you want to collect rewards or cashback on your spending?</label>
+				<div class="controls">
+					<label class="radio inline">
+				  		<input type="radio" name="rewardscashback" id="rewardscashback1" value="rewards" ng-model="outstandingbalance"> Rewards
+					</label>
+					<label class="radio inline">
+				  		<input type="radio" name="rewardscashback" id="rewardscashback2" value="cashback" ng-model="outstandingbalance"> Cashback
+					</label>
+				</div>
+			</div>
+
 			<div class="control-group">
 				<div class="control-label">
 					<label class="checkbox"></label>
@@ -35,5 +54,5 @@
 	</div>
 </div>
 <script type="text/javascript">
-$('#categoryModal').modal('toggle');
+	$('#categoryModal').modal('toggle');
 </script>

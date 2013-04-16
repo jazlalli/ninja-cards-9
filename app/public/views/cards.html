@@ -7,12 +7,13 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Credit Cards</title>
 
     <style>[ng-cloak] {display: none}</style>
     <link rel="stylesheet" href="/css/bootstrap.css" media="screen" />
+    <link rel="stylesheet" href="/css/bootstrap-responsive.css" />
     <link rel="stylesheet" href="/css/site.css" />
 
     <script type="text/javascript" src="/libs/require-jquery.js"></script>
@@ -32,7 +33,7 @@
     <div id="cardsearchcontainer" class="container-fluid">
       <div class="row-fluid">
         <div class="span2">
-          <div class="sidebar-nav affix">
+          <div class="sidebar-nav affix" ng-cloak>
             <ul class="nav nav-list well" style="width: 190px; margin-top: 20px;">
               <li class="nav-header">Card Types</li>
               <li ng-repeat="category in categories" ng-class="setActive(category.Name)">
@@ -41,7 +42,7 @@
                 </a>
               </li>
             </ul>
-            <div style="margin-top:15px; text-align:center;">
+            <div style="margin-top:15px; text-align:center;" ng-cloak>
               <a href="#/category/select" class="btn btn-warning">What Cards Are Best For Me?</a>
             </div>
           </div>
